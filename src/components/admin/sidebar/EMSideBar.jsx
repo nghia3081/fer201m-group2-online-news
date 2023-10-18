@@ -1,5 +1,3 @@
-import { Nav } from "react-bootstrap"
-import { Link } from "react-router-dom"
 import DefaultSideBar from "./default-side-bar/DefaultSideBar"
 
 const menus = [

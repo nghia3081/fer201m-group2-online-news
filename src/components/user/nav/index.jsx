@@ -6,6 +6,11 @@ import './index.css';
 import { Link, NavLink } from 'react-router-dom';
 import { House, Search } from 'react-bootstrap-icons';
 const NavBar = ({ isSticky }) => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    const logout = () => {
+        localStorage.removeItem("user")
+        window.location.href = "/";
+    }
     return (
         <Navbar sticky={isSticky ? "top" : undefined} className='p-3 mb-3 bg-body-tertiary shadow' style={{ maxHeight: "15vh" }}>
             <Row>
@@ -59,8 +64,10 @@ const NavBar = ({ isSticky }) => {
                 </Col>
                 <Col md={3} sm={12} className='d-flex justify-content-end align-items-center' >
 
-                    <Link to="/profile"><Button className='btn-warning'>Profile</Button></Link>
-                    <Link to="/login"><Button className='btn-danger'>Login</Button></Link>
+                    {user && <Link to="/profile"><Button className='btn-warning'>Profile</Button></Link>}
+                    {user ? <Button className='btn-danger' onClick={logout}>Logout</Button>
+                        : <Link to="/login"><Button className='btn-danger'>Login</Button></Link>
+                    }
                 </Col>
             </Row>
         </Navbar>

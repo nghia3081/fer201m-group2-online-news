@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
-import { withRouter } from "react-router";
 import './DefaultSideBar.css'
 import { Link } from "react-router-dom";
 
@@ -11,10 +10,7 @@ const DefaultSideBar = ({ menus, defaultUrl }) => {
 
             <Nav className=" d-none d-md-block sidebar w-100"
                 activeKey={activeKey}
-                onSelect={selectedKey => {
-                    console.log(selectedKey);
-                    setActiveKey(selectedKey)
-                }}
+                
             >
                 <div className="sidebar-sticky"></div>
                 {
@@ -26,8 +22,9 @@ const DefaultSideBar = ({ menus, defaultUrl }) => {
                                 backgroundColor: `${activeKey === menuItem.url ? "#ffffff2b" : ""}`,
                                 borderRadius: "10px", width: "100%"
                             }}
+                            onClick={() => setActiveKey(menuItem.url)}
                         >
-                            <Nav.Link as={Link} to={menuItem.url}>{menuItem.name}</Nav.Link>
+                            <Nav.Link as={Link} to={menuItem.url} style={{color:"white"}}>{menuItem.name}</Nav.Link>
                         </Nav.Item>)
                     })
                 }

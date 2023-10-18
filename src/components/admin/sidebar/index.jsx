@@ -4,7 +4,7 @@ import EMSideBar from "./EMSideBar";
 
 const SideBar = () => {
 
-    const user = JSON.parse(localStorage.getItem("user")) ?? { role: 1};
+    const user = JSON.parse(localStorage.getItem("user")) ?? { role: 3};
 
 
     return (

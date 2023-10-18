@@ -21,7 +21,7 @@ const Register = () => {
                         <Form.Control name="phone"></Form.Control>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" required={true} name="password"></Form.Control>
-                        <p>You already have account? <Link to="/login">Login</Link></p>
+                        <p className="p-2">You already have account? <Link to="/login"><Button>Login</Button></Link></p>
                         <div className="mt-2 text-center">
                             <Button>Tạo tài khoản</Button>
                         </div>
