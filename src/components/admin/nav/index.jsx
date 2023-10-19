@@ -3,11 +3,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import fptLogo from '../../../assets/images/fpt-logo.png';
 import './index.css';
 import { Link } from 'react-router-dom';
+import useUserService from '../../../apis/user';
 const NavBar = ({ isSticky }) => {
-    const user = JSON.parse(localStorage.getItem("user")) ?? {}
+    const userService = useUserService();
+    const user = userService.getUser();
     const logout = () => {
-        localStorage.removeItem("user")
-        window.location.href = "/";
+        userService.logout();
     }
     return (
         <Navbar sticky={isSticky ? "top" : undefined} className='p-3 bg-body-tertiary shadow' style={{ maxHeight: "15vh" }}>

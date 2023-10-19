@@ -9,10 +9,12 @@ import CommentManagement from "../editorial/CommentManagement"
 import AuthorManagement from "../editorial/AuthorManagement"
 import PostManagementByAuthor from "../author/PostManagement"
 import { useEffect } from "react"
+import useUserService from "../../apis/user"
 
 
 const AdminPage = () => {
-    const user = JSON.parse(localStorage.getItem("user")) ?? {}
+    const userService  = useUserService();
+    const user = userService.getUser();
     return (
         <>
 

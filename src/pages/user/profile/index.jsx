@@ -1,7 +1,18 @@
+import { useState } from "react"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
+import useUserService from "../../../apis/user"
 
 const UserProfile = () => {
+    const userService = useUserService();
+    const [user, setUser] = useState(userService.getUser())
+
+    const onUpdate = () => {
+        userService.updateUser(user).then(
+            res => alert("Update successfully")
+        ).catch(error => alert(error));
+    }
     return (
+
         <Container>
             <h4 className="text-center">Thông tin tài khoản</h4>
             <Row>
@@ -13,14 +24,21 @@ const UserProfile = () => {
                 <Col md={8}>
                     <Form>
                         <Form.Label>Họ tên</Form.Label>
-                        <Form.Control></Form.Control>
-                        <Form.Label>Ngày sinh</Form.Label>
-                        <Form.Control type="date"></Form.Control>
+                        <Form.Control value={user.fullName}
+                            onChange={(e) => setUser({ ...user, fullName: e.target.value })}
+                        ></Form.Control>
                         <Form.Label>Số điện thoại</Form.Label>
-                        <Form.Control></Form.Control>
+                        <Form.Control value={user.phone}
+                            onChange={(e) => setUser({ ...user, phone: e.target.value })}>
+
+                        </Form.Control>
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email"></Form.Control>
-                        <Form.Label>Giới tính: </Form.Label>
+                        <Form.Control type="email" value={user.email}
+                            onChange={(e) => setUser({ ...user, email: e.target.value })}>
+
+                        </Form.Control>
+                        <Form.Label
+                        >Giới tính: </Form.Label>
                         <div>
                             <Form.Check
                                 inline
@@ -28,6 +46,8 @@ const UserProfile = () => {
                                 name="gender"
                                 type="radio"
                                 value={true}
+                                onChange={(e) => setUser({ ...user, gender: e.target.value === "true" })}
+                                checked={user.gender}
                             />
                             <Form.Check
                                 inline
@@ -35,10 +55,13 @@ const UserProfile = () => {
                                 label="Nữ"
                                 type="radio"
                                 value={false}
+                                onChange={(e) => { setUser({ ...user, gender: e.target.value === "true" }) }}
+                                checked={!user.gender}
                             />
+
                         </div>
                         <div className="text-center">
-                            <Button className="text-center" variant="warning">Update</Button>
+                            <Button className="text-center" variant="warning" onClick={onUpdate}>Update</Button>
                         </div>
 
                     </Form>

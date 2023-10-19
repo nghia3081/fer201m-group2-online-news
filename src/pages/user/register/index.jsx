@@ -1,8 +1,33 @@
 import { Button, Col, Row } from "react-bootstrap"
 import Form from 'react-bootstrap/Form';
 import './index.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useUserService from "../../../apis/user";
+import { useState } from "react";
 const Register = () => {
+    const [user, setUser] = useState({});
+    const [validated, setValidated] = useState(false);
+    const userService = useUserService();
+    const navigate = useNavigate();
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        setValidated(form.checkValidity());
+
+        event.preventDefault();
+        event.stopPropagation();
+        console.log(user);
+        userService.register(user)
+            .then(user => {
+                alert("Register successfully");
+                navigate("/login");
+            })
+            .catch(error => {
+                alert(error)
+            })
+
+
+    };
+
     return (<div className="container-fluid h-100">
         <Row>
             <Col md={8} className="d-flex justify-content-center align-item-center position-relative">
@@ -12,18 +37,29 @@ const Register = () => {
                         top: '50%',
                     }}>
                     <h4 className="text-center mb-3">Tạo tài khoản online news</h4>
-                    <Form  >
+                    <Form noValidate validated={validated} onSubmit={handleSubmit} >
+                        <Form.Label >Username</Form.Label>
+                        <Form.Control required={true} name="username"
+                            onChange={(e) => setUser({ ...user, username: e.target.value })}
+                        ></Form.Control>
                         <Form.Label >Email</Form.Label>
-                        <Form.Control required={true} name="email"></Form.Control>
+                        <Form.Control required={true} name="email"
+                            onChange={(e) => setUser({ ...user, email: e.target.value })}></Form.Control>
                         <Form.Label >Full Name</Form.Label>
-                        <Form.Control name="fullName"></Form.Control>
+                        <Form.Control name="fullName"
+                            onChange={(e) => setUser({ ...user, fullName: e.target.value })}
+                        ></Form.Control>
                         <Form.Label >Phone</Form.Label>
-                        <Form.Control name="phone"></Form.Control>
+                        <Form.Control name="phone"
+                            onChange={(e) => setUser({ ...user, phone: e.target.value })}
+                        ></Form.Control>
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" required={true} name="password"></Form.Control>
+                        <Form.Control type="password" required={true} name="password"
+                            onChange={(e) => setUser({ ...user, password: e.target.value })}
+                        ></Form.Control>
                         <p className="p-2">You already have account? <Link to="/login"><Button>Login</Button></Link></p>
                         <div className="mt-2 text-center">
-                            <Button>Tạo tài khoản</Button>
+                            <Button type="submit">Tạo tài khoản</Button>
                         </div>
 
                     </Form>
