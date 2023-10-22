@@ -5,12 +5,19 @@ import fptLogo from '../../../assets/images/fpt-logo.png';
 import './index.css';
 import { Link, NavLink } from 'react-router-dom';
 import { House, Search } from 'react-bootstrap-icons';
+
+function search(e){
+    let input = e;
+    console.log(input);
+}
+
 const NavBar = ({ isSticky }) => {
     const user = JSON.parse(localStorage.getItem("user"))
     const logout = () => {
         localStorage.removeItem("user")
         window.location.href = "/";
     }
+
     return (
         <Navbar sticky={isSticky ? "top" : undefined} className='p-3 mb-3 bg-body-tertiary shadow' style={{ maxHeight: "15vh" }}>
             <Row>
@@ -23,11 +30,20 @@ const NavBar = ({ isSticky }) => {
                 <Col md={6} sm={12}  >
                     <Row >
                         <Col md={12}>
-                            <Form.Control
-                                className='d-inline-block'
-                                type="search"
-                                placeholder='Enter something to find a post'
-                            />
+                            <Form
+                                action='/search'
+                                method='get'
+                                onSubmit={(e)=>{
+                                    console.log(e.target.search.value);
+                                }}
+                            >
+                                <Form.Control
+                                    name="search"
+                                    className='d-inline-block'
+                                    type="search"
+                                    placeholder='Enter something to find a post'
+                                />
+                            </Form>
                         </Col>
                         {/* <Col md={1}>
                             <Button><Search></Search></Button>

@@ -8,6 +8,7 @@ import UserProfile from "./profile"
 import AuthorList from "./author-list"
 import AuthorProfile from "./author-profile"
 import PostDetail from "../../components/post-detail"
+import SearchPost from "./SearchPost"
 
 
 const UserPage = () => {
@@ -24,6 +25,7 @@ const UserPage = () => {
                 <Route path="/profile" element={<UserProfile></UserProfile>}></Route>
                 <Route path="/author" element={<AuthorList></AuthorList>}></Route>
                 <Route path="/author/:id" element={<AuthorProfile></AuthorProfile>}></Route>
+                <Route path="/search" element={<SearchPost></SearchPost>}></Route>
             </Routes>
 
 
