@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import useUserService from "../../../apis/user"
+import './style.css'
 
 const UserProfile = () => {
     const userService = useUserService();
@@ -37,8 +38,7 @@ const UserProfile = () => {
                             onChange={(e) => setUser({ ...user, email: e.target.value })}>
 
                         </Form.Control>
-                        <Form.Label
-                        >Giới tính: </Form.Label>
+                        <Form.Label>Giới tính: </Form.Label>
                         <div>
                             <Form.Check
                                 inline
