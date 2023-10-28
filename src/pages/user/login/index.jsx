@@ -21,7 +21,7 @@ const Login = () => {
         userService.login(user)
             .then(user => {
                 localStorage.setItem("user", JSON.stringify(user));
-                navigation('/')
+                window.location.href = "/"
             })
             .catch(error => {
                 alert(error)
