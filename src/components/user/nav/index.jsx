@@ -14,6 +14,7 @@ import "./index.css";
 import { Link, NavLink } from "react-router-dom";
 import { House, Search } from "react-bootstrap-icons";
 import categories from "../../../data/category";
+
 const NavBar = ({ isSticky }) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const logout = () => {
