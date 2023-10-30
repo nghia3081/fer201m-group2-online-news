@@ -17,6 +17,9 @@ import categories from "../../../data/category";
 
 const NavBar = ({ isSticky }) => {
     const user = JSON.parse(localStorage.getItem("user"));
+    const onLogin = () => {
+        window.location.href = "/login";
+    }
     const logout = () => {
         localStorage.removeItem("user");
         window.location.href = "/";
@@ -67,7 +70,7 @@ const NavBar = ({ isSticky }) => {
                                 >
                                     {categories.map((category) => {
                                         return (
-                                            <Nav.Link key={category.id} as={Link} to={`/${category.id}`}>
+                                            <Nav.Link key={category.id} as={Link} to={`category/${category.id}`}>
                                                 {category.name}
                                             </Nav.Link>
                                         );
@@ -104,7 +107,7 @@ const NavBar = ({ isSticky }) => {
                             Logout
                         </Button>
                     ) : (
-                        <Link to="/login">
+                        <Link onClick={onLogin}>
                             <Button className="btn-danger">Login</Button>
                         </Link>
                     )}

@@ -17,14 +17,11 @@ const AdminPage = () => {
     const user = userService.getUser();
     return (
         <>
-
             {user && user.role !== 0 &&
                 <>
-                    <NavBar>
-
-                    </NavBar>
+                    <NavBar />
                     <Row style={{ height: "85vh", margin: 0 }}>
-                        <Col md={2} style={{ height: "100%", backgroundColor: "darkred", paddingTop: "1rem" }}>
+                        <Col md={2} style={{ backgroundColor: "darkred", paddingTop: "1rem" }}>
                             <SideBar></SideBar>
                         </Col>
                         <Col md={10}>

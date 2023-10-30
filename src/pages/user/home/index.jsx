@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import Post from "../../../components/post";
 import categories from "../../../data/category";
 import posts from "../../../data/post";
@@ -8,8 +8,23 @@ const HomePage = () => {
 
     return (
         <Container>
-            <Row></Row>
             <Row>
+                <Carousel>
+                    {posts.slice(0, 3).map(post => {
+                        return (
+                            <Carousel.Item key={post.id}>
+                                <img src={post.image_src} alt="" style={{width: '100%', height: '400px'}}/>
+                                <Carousel.Caption>
+                                    <h3>{post.title}</h3>
+                                    <p>{post.brief}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        );
+                    })}
+                </Carousel>
+            </Row>
+            <hr />
+            <Row style={{marginTop: '20px'}}>
                 <Col md={4}>
                     <Row>
                         {posts.slice(0, 8).map(post => {

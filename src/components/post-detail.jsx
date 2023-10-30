@@ -3,6 +3,7 @@ import Comment from "./user/comments/comment"
 import { useParams } from "react-router-dom"
 import posts from "../data/post"
 import comments from "../data/comment"
+import CommentEditor from "./user/comments/comment-editor"
 
 const PostDetail = () => {
     let id = useParams()
@@ -16,8 +17,10 @@ const PostDetail = () => {
             <p style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: post.content }} />
             <hr></hr>
 
-            <Row style={{ backgroundColor: '#ccc', margin: '10px', padding: '10px'}}>
+            <Row style={{ backgroundColor: '#F7F7F7', margin: '10px', padding: '10px'}}>
                 <h4>Ý kiến</h4>
+                <CommentEditor />
+                <hr />
                 {comments.map(comment => {
                     return (
                         <Comment key={comment.id} comment={comment} />

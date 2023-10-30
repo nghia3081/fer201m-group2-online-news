@@ -24,7 +24,7 @@ const NavBar = ({ isSticky }) => {
                 </Col>
                 <Col md={3} sm={12} className='d-flex justify-content-end align-items-center' >
 
-                    {user && <Link to="/profile"><Button className='btn-warning'>Profile</Button></Link>}
+                    {user && <Link to="/profile"><Button className='btn-warning' style={{marginRight: '10px'}}>Profile</Button></Link>}
                     {user ? <Button className='btn-danger' onClick={logout}>Logout</Button>
                         : <Link to="/login"><Button className='btn-danger'>Login</Button></Link>
                     }
