@@ -1,17 +1,19 @@
 import { Col, Container, Row } from "react-bootstrap"
-import Post from "../../../components/post"
-
-
+import Post from "../../../components/post";
+import categories from "../../../data/category";
+import posts from "../../../data/post";
 
 const  SearchPost = () => {
+    
     return (
+
 
         <Container>
             <Row style={{justifyContent: 'center'}}>
                 <Col md={6}>
                     <Row>
                         {
-                            [...Array(100).keys()].map((value, i) => {
+                            posts.filter().map((value, i) => {
                                 return (<Col md={12} key={i} className="mb-2">
                                     <Post>
 
