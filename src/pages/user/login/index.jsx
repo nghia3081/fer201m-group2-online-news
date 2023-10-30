@@ -17,7 +17,7 @@ const Login = () => {
         setValidated(form.checkValidity());
         event.preventDefault();
         event.stopPropagation();
-        console.log(user);
+
         userService.login(user)
             .then(user => {
                 localStorage.setItem("user", JSON.stringify(user));
