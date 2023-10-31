@@ -62,6 +62,11 @@ const UserProfile = () => {
                         </div>
                         <div className="text-center">
                             <Button className="text-center" variant="warning" onClick={onUpdate}>Update</Button>
+                            {user && user.role !== 0 &&
+                                <Button className="text-center" style={{ marginLeft: '10px' }} variant="danger" onClick={() => window.location.href = '/manage'}>
+                                    Manage
+                                </Button>
+                            }
                         </div>
 
                     </Form>
