@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Button, Col, Container, Row, Modal, Table, Form } from "react-bootstrap"
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 
 const PostEditor = () => {
