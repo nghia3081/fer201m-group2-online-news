@@ -1,8 +1,10 @@
 import { Button, Col, Container, Row, Modal, Table, Form } from "react-bootstrap"
 import posts from "../../data/post"
 import { useState } from "react"
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const PostManagement = () => {
+const PostManagementByAuthor = ({ id }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleOpenModal = () => {
@@ -113,4 +115,4 @@ const PostManagement = () => {
     )
 }
 
-export default PostManagement
+export default PostManagementByAuthor

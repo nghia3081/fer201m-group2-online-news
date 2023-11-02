@@ -8,8 +8,8 @@ import PostManagement from "../editorial/PostManagement"
 import CommentManagement from "../editorial/CommentManagement"
 import AuthorManagement from "../editorial/AuthorManagement"
 import PostManagementByAuthor from "../author/PostManagement"
-import { useEffect } from "react"
 import useUserService from "../../apis/user"
+import PostEditor from "../author/PostEditor"
 
 
 const AdminPage = () => {
@@ -32,6 +32,7 @@ const AdminPage = () => {
                                 <Route path="/quan-ly-binh-luan" element={<CommentManagement></CommentManagement>}></Route>
                                 <Route path="/quan-ly-tac-gia" element={<AuthorManagement></AuthorManagement>}></Route>
                                 <Route path="/bai-viet" element={<PostManagementByAuthor></PostManagementByAuthor>}></Route>
+                                <Route path="/them-bai-viet" element={<PostEditor></PostEditor>}></Route>
                             </Routes>
                         </Col>
                     </Row>
