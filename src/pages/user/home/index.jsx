@@ -5,7 +5,7 @@ import posts from "../../../data/post";
 import './style.css'
 
 const HomePage = () => {
-
+    
     return (
         <Container>
             <Row>

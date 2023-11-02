@@ -14,15 +14,20 @@ import "./index.css";
 import { Link, NavLink } from "react-router-dom";
 import { House, Search } from "react-bootstrap-icons";
 import categories from "../../../data/category";
+import useAccountService from "../../../apis/account";
+import { useEffect, useState } from "react";
 
 const NavBar = ({ isSticky }) => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const accountService = useAccountService();
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        accountService.getMyProfile().then(res => setUser(res));
+    }, [])
     const onLogin = () => {
         window.location.href = "/login";
     }
     const logout = () => {
-        localStorage.removeItem("user");
-        window.location.href = "/";
+        accountService.logout();
     };
     return (
         <Navbar

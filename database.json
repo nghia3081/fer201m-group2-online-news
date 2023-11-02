@@ -2,18 +2,138 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "accountId": 4,
+      "title": "Sinh viên cắm đêm trong quán cà phê 24/7, nguy cơ mất ngủ mãn tính",
+      "brief": "Hình ảnh đáng kinh ngạc này của nhiếp ảnh gia Uros Fink lên kế hoạch trước 6 tháng.",
+      "content": "<p>Tại TP.HCM, các quán cà phê hoạt động 24/7 ngày càng trở nên quen thuộc với nhiều sinh viên có nhu cầu học và chơi xuyên đêm.</p><p>Gần nửa đêm, tiệm cà phê 24/7 trên đường Lương Định Của (TP Thủ Đức, TP.HCM) vẫn tiếp đón những vị khách sống theo múi giờ trái ngược với đại đa số người Việt Nam.</p><p>Tại quầy thanh toán, các nhân viên thay phiên nhau đón khách. Bạn Nguyễn Thành Vinh - nhân viên quán - chia sẻ: 'Vào mùa thi cử, học sinh sinh viên thường đến quán từ sáng sớm đến tối muộn để học bài. Có những ca lên đến 100 khách'.</p><p>Không chỉ xuất hiện ở các quận trung tâm, mô hình cà phê 24/7 hướng đến đối tượng khách hàng là sinh viên cũng đã xuất hiện ở làng đại học TP Thủ Đức.</p><p>Tại TP.HCM, các quán cà phê hoạt động 24/7 ngày càng trở nên quen thuộc với nhiều sinh viên có nhu cầu học và chơi xuyên đêm.</p><p>Gần nửa đêm, tiệm cà phê 24/7 trên đường Lương Định Của (TP Thủ Đức, TP.HCM) vẫn tiếp đón những vị khách sống theo múi giờ trái ngược với đại đa số người Việt Nam.</p><p>Tại quầy thanh toán, các nhân viên thay phiên nhau đón khách. Bạn Nguyễn Thành Vinh - nhân viên quán - chia sẻ: 'Vào mùa thi cử, học sinh sinh viên thường đến quán từ sáng sớm đến tối muộn để học bài. Có những ca lên đến 100 khách'.</p><p>Không chỉ xuất hiện ở các quận trung tâm, mô hình cà phê 24/7 hướng đến đối tượng khách hàng là sinh viên cũng đã xuất hiện ở làng đại học TP Thủ Đức.</p>",
+      "categoryId": 2,
+      "thumbnail": "https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg",
+      "createdAt": "2023/11/02T10:16:00:000Z",
+      "approved": true,
+      "rejectedReason": null
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "content": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+      "createdAt": "23 November 2021",
+      "accountId": 7,
+      "postId": 1,
+      "replies": []
+    },
+    {
+      "id": 2,
+      "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+      "createdAt": "5 December 2021",
+      "accountId": 7,
+      "postId": 1,
+      "replies": [
+        {
+          "id": 3,
+          "content": "@maxblaugn, If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+          "createdAt": "18 December 2021",
+          "accountId": 7,
+          "postId": 1
+        },
+        {
+          "id": 4,
+          "content": "@ramsesmiron, I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+          "createdAt": "30 December 2021",
+          "accountId": 7,
+          "postId": 1
+        }
+      ]
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "categories": [
+    {
+      "id": 1,
+      "name": "Công An"
+    },
+    {
+      "id": 2,
+      "name": "Pháp luật"
+    },
+    {
+      "id": 3,
+      "name": "Thể thao"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "fullName": "Admin",
+      "phone": "01474101147",
+      "password": "admin@123",
+      "role": 1
+    },
+    {
+      "id": 2,
+      "username": "editorial1",
+      "email": "editorial1@gmail.com",
+      "fullName": "Editorial1",
+      "phone": "211554564654",
+      "password": "editorial1@123",
+      "role": 2,
+      "categoryId": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "username": "editorial2",
+      "email": "editorial2@gmail.com",
+      "fullName": "Editorial2",
+      "phone": "211554564654",
+      "password": "editorial2@123",
+      "role": 2,
+      "categoryId": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "username": "author1",
+      "email": "author1@gmail.com",
+      "fullName": "Author1",
+      "phone": "05465456564",
+      "password": "author1@123",
+      "role": 3,
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "username": "author2",
+      "email": "author2@gmail.com",
+      "fullName": "Author2",
+      "phone": "05465456564",
+      "password": "author2@123",
+      "role": 3,
+      "categoryId": 2
+    },
+    {
+      "id": 6,
+      "username": "author3",
+      "email": "author3@gmail.com",
+      "fullName": "Author3",
+      "phone": "05465456564",
+      "password": "author3@123",
+      "role": 3,
+      "categoryId": 3
+    },
+    {
+      "id": 7,
+      "username": "user",
+      "email": "user@gmail.com",
+      "fullName": "User",
+      "phone": "046456465654",
+      "password": "user@123",
+      "role": 0
+    }
+  ]
 }
