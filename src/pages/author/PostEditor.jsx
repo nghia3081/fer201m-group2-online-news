@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, Col, Container, Row, Modal, Table, Form } from "react-bootstrap"
+import {  Col, Container, Row, Form } from "react-bootstrap"
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
@@ -24,8 +24,8 @@ const PostEditor = () => {
             <Row>
                 <Form>
                     <Form.Group as={Row} controlId="formFileMultiple" className="mb-3">
-                        <Form.Label column sm="2">Chọn Thumbnail:</Form.Label>
-                        <Col sm='9'><Form.Control type="file" multiple /></Col>
+                        <Form.Label column sm="2">Link thumbnail:</Form.Label>
+                        <Col sm='9'><Form.Control type="text" /></Col>
 
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3">
