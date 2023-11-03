@@ -7,7 +7,7 @@ const Post = ({ titleOnTop, post }) => {
     const navigate = useNavigate();
 
     const OnPostClick = () => {
-        navigate('/post/2')
+        navigate('/post/'+post.id)
     }
 
     return (

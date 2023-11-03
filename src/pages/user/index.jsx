@@ -15,7 +15,7 @@ const UserPage = () => {
         <>
             {window.location.pathname !== '/login' && <NavBar />}
 
-            <Routes  >
+            <Routes>
                 <Route path="/" element={<HomePage></HomePage>} />
                 <Route path="/post/:id" element={<PostDetail></PostDetail>} />
                 <Route path="/login" element={<Login></Login>} />
@@ -23,6 +23,7 @@ const UserPage = () => {
                 <Route path="/profile" element={<UserProfile></UserProfile>} />
                 <Route path="/author" element={<AuthorList></AuthorList>} />
                 <Route path="/author/:id" element={<AuthorProfile></AuthorProfile>} />
+                <Route path="/search" element={<SearchPost></SearchPost>} />
             </Routes>
 
             {window.location.pathname !== '/login' && <Footer />}
