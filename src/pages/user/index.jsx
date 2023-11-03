@@ -23,7 +23,7 @@ const UserPage = () => {
                 <Route path="/profile" element={<UserProfile></UserProfile>} />
                 <Route path="/author" element={<AuthorList></AuthorList>} />
                 <Route path="/author/:id" element={<AuthorProfile></AuthorProfile>} />
-                <Route path="/search" element={<SearchPost></SearchPost>} />
+                <Route path="/category/:id" element={<HomePage></HomePage>} />
             </Routes>
 
             {window.location.pathname !== '/login' && <Footer />}

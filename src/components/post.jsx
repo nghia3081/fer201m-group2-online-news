@@ -6,19 +6,19 @@ import { useNavigate } from "react-router-dom";
 const Post = ({ titleOnTop, post }) => {
     const navigate = useNavigate();
 
-    const OnPostClick = () => {
-        navigate('/post/'+post.id)
+    const OnPostClick = (id) => {
+        navigate(`/post/${id}`)
     }
 
     return (
-        <Card style={{ cursor: "pointer", flex: '1 1 0' }} onClick={() => OnPostClick()}>
+        <Card style={{ cursor: "pointer", flex: '1 1 0' }} onClick={() => OnPostClick(post.id)}>
             <Card.Body>
                 {
                     titleOnTop ? <Card.Title style={{fontSize: '15px'}}>{post.title}</Card.Title> : null
                 }
                 <Row>
                     <Col md={5}>
-                        <Card.Img src={post.image_banner} />
+                        <Card.Img src={post.thumbnail} />
                     </Col>
                     <Col md={7}>
                         {

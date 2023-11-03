@@ -14,13 +14,21 @@ import "./index.css";
 import { Link, NavLink } from "react-router-dom";
 import { House, Search } from "react-bootstrap-icons";
 import categories from "../../../data/category";
+import useAccountService from "../../../apis/account";
+import { useEffect, useState } from "react";
 
 const NavBar = ({ isSticky }) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const logout = () => {
-        localStorage.removeItem("user");
-        window.location.href = "/";
+    const accountService = useAccountService();
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        accountService.getMyProfile().then(res => setUser(res));
+    }, [])
+    const onLogin = () => {
+        window.location.href = "/login";
     }
+    const logout = () => {
+        accountService.logout();
+    };
     return (
         <Navbar
             sticky={isSticky ? "top" : undefined}
@@ -76,7 +84,7 @@ const NavBar = ({ isSticky }) => {
                                 >
                                     {categories.map((category) => {
                                         return (
-                                            <Nav.Link key={category.id} as={Link} to={`/${category.id}`}>
+                                            <Nav.Link key={category.id} as={Link} to={`category/${category.id}`}>
                                                 {category.name}
                                             </Nav.Link>
                                         );
@@ -113,7 +121,7 @@ const NavBar = ({ isSticky }) => {
                             Logout
                         </Button>
                     ) : (
-                        <Link to="/login">
+                        <Link onClick={onLogin}>
                             <Button className="btn-danger">Login</Button>
                         </Link>
                     )}
