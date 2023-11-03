@@ -1,17 +1,32 @@
 import { useState } from "react"
-import {  Col, Container, Row, Form } from "react-bootstrap"
+import { Col, Container, Row, Form, Button } from "react-bootstrap"
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
+import usePostService from "../../apis/post";
 
 const PostEditor = () => {
+    const [thumbnail, setThumbnail] = useState('')
     const [title, setTitle] = useState('')
     const [brief, setBrief] = useState('')
     const [content, setContent] = useState('')
+    const postService = usePostService()
 
     const handleEditor = (ev, editor) => {
         const data = editor.getData();
         setContent(data)
+    }
+
+    const handleSubmit = () => {
+        let data = {
+            thumbnail: thumbnail,
+            title: title,
+            brief: brief,
+            content: content,
+        }
+
+        postService.createPost(data).then(res => {
+            console.log("res", res);
+        })
     }
 
     return (
@@ -69,6 +84,12 @@ const PostEditor = () => {
                             />
                         </Col>
                     </Form.Group>
+                    <Button variant="primary" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16" style={{ marginRight: '5px' }}>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                        Thêm bài viết
+                    </Button>
                 </Form>
             </Row>
         </Container>

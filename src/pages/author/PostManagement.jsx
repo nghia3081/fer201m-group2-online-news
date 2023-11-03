@@ -1,17 +1,17 @@
-import { Button, Col, Container, Row, Modal, Table, Form } from "react-bootstrap"
-import posts from "../../data/post"
+import { Button, Col, Container, Row,  Table} from "react-bootstrap"
 import { useState } from "react"
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { useNavigate, useNavigation } from "react-router";
+import { useNavigate, useEffect } from "react";
+import usePostService from "../../apis/post";
 
 const PostManagementByAuthor = ({ id }) => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggleOpenModal = () => {
-        setIsOpen(!isOpen)
-    }
-const navigate = useNavigate();
+    const postService = usePostService()
+    const [posts, setPosts] = useState([])
+    useEffect(() => {
+        postService.getPost().then(
+            (res) => setPosts(res)
+        )
+    }, [])
+    const navigate = useNavigate();
     return (
         <Container style={{ padding: '20px' }}>
             <Row>
@@ -42,7 +42,7 @@ const navigate = useNavigate();
                     </thead>
                     <tbody>
                         {posts.map(post => {
-                            return ( 
+                            return (
                                 <tr key={post.id}>
                                     <td>{post.id}</td>
                                     <td>{post.title}</td>

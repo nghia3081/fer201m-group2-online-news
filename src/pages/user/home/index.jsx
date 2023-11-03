@@ -3,8 +3,23 @@ import Post from "../../../components/post";
 import categories from "../../../data/category";
 import posts from "../../../data/post";
 import './style.css'
+import { useEffect, useState } from "react";
+import usePostService from "../../../apis/post";
+import useCategoryService from "../../../apis/category";
 
 const HomePage = () => {
+    const postService = usePostService()
+    const categoryService = useCategoryService()
+    const [posts, setPosts] = useState([])
+    const [categories, setCategories] = useState([])
+    useEffect(()=>{
+        postService.getPost().then(
+           (res) => setPosts(res)
+        )
+        categoryService.getCategory().then(
+            (res) => setCategories(res)
+        )
+    }, [])
     
     return (
         <Container>
