@@ -10,8 +10,14 @@ const PostManagementByAuthor = ({ id }) => {
         postService.getPost().then(
             (res) => setPosts(res)
         )
-    }, [])
+    }, [posts])
     const navigate = useNavigate();
+
+    const deletePost = (id) => {
+        postService.deletePost(id).then(
+            (res) => setPosts(res)
+        )
+    }
     return (
         <Container style={{ padding: '20px' }}>
             <Row>
@@ -48,7 +54,7 @@ const PostManagementByAuthor = ({ id }) => {
                                     <td>{post.title}</td>
                                     <td>{post.public_date}</td>
                                     <td>
-                                        <Button variant='danger' >Xóa</Button>
+                                        <Button onClick={()=>deletePost(post.id)} variant='danger' >Xóa</Button>
                                     </td>
                                 </tr>
                             )
