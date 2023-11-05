@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import useUserService from "../../../apis/user";
+import { useState } from "react"
+import { Button, Col, Container, Form, Row } from "react-bootstrap"
+import useUserService from "../../../apis/user"
+import './style.css'
 
 const UserProfile = () => {
     const userService = useUserService();
@@ -18,7 +19,7 @@ const UserProfile = () => {
             <Row>
                 <Col md={4}>
                     <Row>
-                        <img className="rounded" style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="avatar" src="https://th.bing.com/th/id/OIG.y3eGwbcLkQtDhkCEsLKu" />
+                        <img className="rounded" style={{ width: "100%", height: "100%", objectFit: "cover" }} src="https://th.bing.com/th/id/OIG.y3eGwbcLkQtDhkCEsLKu" />
                     </Row>
                 </Col>
                 <Col md={8}>
@@ -37,8 +38,7 @@ const UserProfile = () => {
                             onChange={(e) => setUser({ ...user, email: e.target.value })}>
 
                         </Form.Control>
-                        <Form.Label
-                        >Giới tính: </Form.Label>
+                        <Form.Label>Giới tính: </Form.Label>
                         <div>
                             <Form.Check
                                 inline

@@ -1,0 +1,4 @@
+.position-relative > .container{
+    max-width: 1080px;
+    min-height: 72vh;
+}

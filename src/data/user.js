@@ -1,4 +1,3 @@
-
 let users = [
     {
         username: "admin",
@@ -33,4 +32,5 @@ let users = [
         role: 0
     },
 ]
+
 export default users
