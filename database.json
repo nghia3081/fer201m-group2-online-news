@@ -1,51 +1,25 @@
 {
   "posts": [
     {
-      "id": 1,
-      "accountId": 4,
-      "title": "Sinh viên cắm đêm trong quán cà phê 24/7, nguy cơ mất ngủ mãn tính",
-      "brief": "Hình ảnh đáng kinh ngạc này của nhiếp ảnh gia Uros Fink lên kế hoạch trước 6 tháng.",
-      "content": "<p>Tại TP.HCM, các quán cà phê hoạt động 24/7 ngày càng trở nên quen thuộc với nhiều sinh viên có nhu cầu học và chơi xuyên đêm.</p><p>Gần nửa đêm, tiệm cà phê 24/7 trên đường Lương Định Của (TP Thủ Đức, TP.HCM) vẫn tiếp đón những vị khách sống theo múi giờ trái ngược với đại đa số người Việt Nam.</p><p>Tại quầy thanh toán, các nhân viên thay phiên nhau đón khách. Bạn Nguyễn Thành Vinh - nhân viên quán - chia sẻ: 'Vào mùa thi cử, học sinh sinh viên thường đến quán từ sáng sớm đến tối muộn để học bài. Có những ca lên đến 100 khách'.</p><p>Không chỉ xuất hiện ở các quận trung tâm, mô hình cà phê 24/7 hướng đến đối tượng khách hàng là sinh viên cũng đã xuất hiện ở làng đại học TP Thủ Đức.</p><p>Tại TP.HCM, các quán cà phê hoạt động 24/7 ngày càng trở nên quen thuộc với nhiều sinh viên có nhu cầu học và chơi xuyên đêm.</p><p>Gần nửa đêm, tiệm cà phê 24/7 trên đường Lương Định Của (TP Thủ Đức, TP.HCM) vẫn tiếp đón những vị khách sống theo múi giờ trái ngược với đại đa số người Việt Nam.</p><p>Tại quầy thanh toán, các nhân viên thay phiên nhau đón khách. Bạn Nguyễn Thành Vinh - nhân viên quán - chia sẻ: 'Vào mùa thi cử, học sinh sinh viên thường đến quán từ sáng sớm đến tối muộn để học bài. Có những ca lên đến 100 khách'.</p><p>Không chỉ xuất hiện ở các quận trung tâm, mô hình cà phê 24/7 hướng đến đối tượng khách hàng là sinh viên cũng đã xuất hiện ở làng đại học TP Thủ Đức.</p>",
-      "categoryId": 2,
-      "thumbnail": "https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg",
-      "createdAt": "2023/11/02T10:16:00:000Z",
-      "approved": true,
-      "rejectedReason": null
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "content": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
-      "createdAt": "23 November 2021",
-      "accountId": 7,
-      "postId": 1,
-      "replies": []
+      "thumbnail": "https://static-images.vnncdn.net/files/publish/2022/9/3/bien-vo-cuc-thai-binh-346.jpeg",
+      "title": "Bài viết test 1 abc",
+      "brief": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      "content": "<figure class=\"image\"><img style=\"aspect-ratio:960/529;\" src=\"https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/26/913299/Ngan-Ha25.jpg\" alt=\"Mãn nhãn với 25 bức ảnh giải Nhiếp ảnh gia dải Ngân Hà năm 2021\" width=\"960\" height=\"529\"></figure><p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p><p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>",
+      "public_date": "2023-11-05T16:11:47.742Z",
+      "categoryId": 1,
+      "id": 2
     },
     {
-      "id": 2,
-      "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
-      "createdAt": "5 December 2021",
-      "accountId": 7,
-      "postId": 1,
-      "replies": [
-        {
-          "id": 3,
-          "content": "@maxblaugn, If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
-          "createdAt": "18 December 2021",
-          "accountId": 7,
-          "postId": 1
-        },
-        {
-          "id": 4,
-          "content": "@ramsesmiron, I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
-          "createdAt": "30 December 2021",
-          "accountId": 7,
-          "postId": 1
-        }
-      ]
+      "thumbnail": "https://static-images.vnncdn.net/files/publish/2022/9/3/bien-vo-cuc-thai-binh-346.jpeg",
+      "title": "Bài viết test 1 abc",
+      "brief": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      "content": "<p><img src=\"https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/08/anh-phat-dep-lam-hinh-nen-62.jpg\" alt=\"Ảnh phật đẹp làm hình nền: Các mẫu ảnh đẹp nhất\" width=\"1200\" height=\"628\"> &nbsp;<br>let data = {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; thumbnail: thumbnail,</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title: title,</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; brief: brief,</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; content: content,</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public_date: new Date(),</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; categoryId:</p><p>&nbsp; &nbsp; &nbsp; &nbsp; }</p><p><br>&nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; postService.createPost(data).then(res =&gt; {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(\"res\", res);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; navigate('/bai-viet')</p><p>&nbsp; &nbsp; &nbsp; &nbsp; })</p>",
+      "public_date": "2023-11-05T16:17:54.412Z",
+      "categoryId": 1,
+      "id": 3
     }
   ],
+  "comments": [],
   "categories": [
     {
       "id": 1,
@@ -69,32 +43,6 @@
       "phone": "01474101147",
       "password": "admin@123",
       "role": 1
-    },
-    {
-      "id": 2,
-      "username": "editorial1",
-      "email": "editorial1@gmail.com",
-      "fullName": "Editorial1",
-      "phone": "211554564654",
-      "password": "editorial1@123",
-      "role": 2,
-      "categoryId": [
-        2,
-        3
-      ]
-    },
-    {
-      "id": 3,
-      "username": "editorial2",
-      "email": "editorial2@gmail.com",
-      "fullName": "Editorial2",
-      "phone": "211554564654",
-      "password": "editorial2@123",
-      "role": 2,
-      "categoryId": [
-        1,
-        2
-      ]
     },
     {
       "id": 4,
