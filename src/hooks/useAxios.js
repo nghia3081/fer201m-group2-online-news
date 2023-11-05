@@ -6,7 +6,7 @@ const useAxios = () => {
         alert(error?.response?.data)
     };
     const _axios = axios.create({
-        baseURL: import.meta.env.BASE_URL,
+        baseURL: "http://localhost:9999",
         xsrfHeaderName: 'RequestVerificationToken',
         withCredentials: true,
     });
@@ -15,12 +15,11 @@ const useAxios = () => {
     });
     _axios.interceptors.response.use(
         (response) => {
-
-            return Promise.resolve(response);
+            return Promise.resolve(response.data);
         },
         (error) => {
             errorHandler(error);
-            return Promise.reject(error?.response?.data);
+            return Promise.reject(error);
         },
     );
     return _axios;

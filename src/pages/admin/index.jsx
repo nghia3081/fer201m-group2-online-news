@@ -8,23 +8,27 @@ import PostManagement from "../editorial/PostManagement"
 import CommentManagement from "../editorial/CommentManagement"
 import AuthorManagement from "../editorial/AuthorManagement"
 import PostManagementByAuthor from "../author/PostManagement"
-import { useEffect } from "react"
-import useUserService from "../../apis/user"
-
+import PostEditor from "../author/PostEditor"
+import useAccountService from "../../apis/account"
+import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 
 const AdminPage = () => {
-    const userService  = useUserService();
-    const user = userService.getUser();
+    const accountService = useAccountService();
+    const [user, setUser] = useState({});
+    const navigate = useNavigate();
+    useEffect(() => {
+        accountService
+            .getMyProfile()
+            .then(user => setUser(user));
+    }, [])
     return (
         <>
-
-            {user && user.role !== 0 &&
+            {user && user?.role !== 0 &&
                 <>
-                    <NavBar>
-
-                    </NavBar>
+                    <NavBar />
                     <Row style={{ height: "85vh", margin: 0 }}>
-                        <Col md={2} style={{ height: "100%", backgroundColor: "darkred", paddingTop: "1rem" }}>
+                        <Col md={2} style={{ backgroundColor: "darkred", paddingTop: "1rem" }}>
                             <SideBar></SideBar>
                         </Col>
                         <Col md={10}>
@@ -35,6 +39,7 @@ const AdminPage = () => {
                                 <Route path="/quan-ly-binh-luan" element={<CommentManagement></CommentManagement>}></Route>
                                 <Route path="/quan-ly-tac-gia" element={<AuthorManagement></AuthorManagement>}></Route>
                                 <Route path="/bai-viet" element={<PostManagementByAuthor></PostManagementByAuthor>}></Route>
+                                <Route path="/them-bai-viet" element={<PostEditor></PostEditor>}></Route>
                             </Routes>
                         </Col>
                     </Row>

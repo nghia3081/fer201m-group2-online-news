@@ -2,10 +2,19 @@ import { Card, Col, Container, Image, Row } from "react-bootstrap"
 import Post from "../../../components/post"
 import authors from "../../../data/author"
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import usePostService from "../../../apis/post";
 
 const AuthorProfile = () => {
     const { id } = useParams();
     const author = authors.find((element) => element.id == id);
+    const [posts, setPosts] = useState([])
+    const postService = usePostService
+    useEffect(() => {
+        postService.getPostByAuthorId(id).then(
+            (res) => setPosts(res)
+        )
+    }, [])
 
     return (<Container>
         <Row>
@@ -56,9 +65,9 @@ const AuthorProfile = () => {
         </Row>
         <Row>
             {
-                [...Array(4).keys()].map((value, i) => {
-                    return (<Col md={6} key={i} className="mb-2">
-                        <Post />
+                posts.map(post => {
+                    return (<Col md={6} key={post.id} className="mb-2">
+                        <Post post={post}/>
                     </Col>)
                 })
             }
