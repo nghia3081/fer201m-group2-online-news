@@ -1,17 +1,25 @@
+import { useEffect, useState } from "react";
 import AdminSideBar from "./AdminSideBar";
 import AuthorSideBar from "./AuthorSideBar";
 import EMSideBar from "./EMSideBar";
+import useAccountService from "../../../apis/account";
 
 const SideBar = () => {
+    const [user, setUser] = useState({});
 
-    const user = JSON.parse(localStorage.getItem("user")) ?? { role: 3};
+    const accountService = useAccountService();
+    useEffect(() => {
+        accountService
+            .getMyProfile()
+            .then(res => setUser(res));
+    }, [])
 
 
     return (
         <div className="w-100 h-100">
-            {user.role === 1 && <AdminSideBar></AdminSideBar>}
-            {user.role === 2 && <EMSideBar></EMSideBar>}
-            {user.role === 3 && <AuthorSideBar></AuthorSideBar>}
+            {user?.role === 1 && <AdminSideBar></AdminSideBar>}
+            {user?.role === 2 && <EMSideBar></EMSideBar>}
+            {user?.role === 3 && <AuthorSideBar></AuthorSideBar>}
         </div>
 
     )

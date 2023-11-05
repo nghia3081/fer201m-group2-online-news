@@ -1,26 +1,25 @@
 import { Button, Col, Row } from "react-bootstrap"
 import Form from 'react-bootstrap/Form';
 import './index.css'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import useUserService from "../../../apis/user";
+import useAccountService from "../../../apis/account";
 
 
 
 const Login = () => {
     const [user, setUser] = useState();
     const [validated, setValidated] = useState(false);
-    const userService = useUserService();
-    const navigation = useNavigate();
+    const accountService = useAccountService();
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         setValidated(form.checkValidity());
         event.preventDefault();
         event.stopPropagation();
-        console.log(user);
-        userService.login(user)
+
+        accountService.login(user)
             .then(user => {
-                localStorage.setItem("user", JSON.stringify(user));
+
                 window.location.href = "/"
             })
             .catch(error => {

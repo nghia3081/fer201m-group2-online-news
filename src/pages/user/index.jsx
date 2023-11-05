@@ -8,29 +8,26 @@ import UserProfile from "./profile"
 import AuthorList from "./author-list"
 import AuthorProfile from "./author-profile"
 import PostDetail from "../../components/post-detail"
-
+import SearchPost from "./SearchPost"
 
 const UserPage = () => {
-
     return (
         <>
-            <NavBar />
+            {window.location.pathname !== '/login' && <NavBar />}
 
-            <Routes  >
-                <Route path="/" element={<HomePage></HomePage>}></Route>
-                <Route path="/post/:id" element={<PostDetail></PostDetail>}></Route>
-                <Route path="/login" element={<Login></Login>}></Route>
-                <Route path="/register" element={<Register></Register>}></Route>
-                <Route path="/profile" element={<UserProfile></UserProfile>}></Route>
-                <Route path="/author" element={<AuthorList></AuthorList>}></Route>
-                <Route path="/author/:id" element={<AuthorProfile></AuthorProfile>}></Route>
+            <Routes>
+                <Route path="/" element={<HomePage></HomePage>} />
+                <Route path="/post/:id" element={<PostDetail></PostDetail>} />
+                <Route path="/login" element={<Login></Login>} />
+                <Route path="/register" element={<Register></Register>} />
+                <Route path="/profile" element={<UserProfile></UserProfile>} />
+                <Route path="/author" element={<AuthorList></AuthorList>} />
+                <Route path="/author/:id" element={<AuthorProfile></AuthorProfile>} />
+                <Route path="/category/:id" element={<HomePage></HomePage>} />
             </Routes>
 
-
-            <Footer></Footer>
+            {window.location.pathname !== '/login' && <Footer />}
         </>
-
-
     )
 }
 export default UserPage;

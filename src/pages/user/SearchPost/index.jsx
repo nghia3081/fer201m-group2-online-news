@@ -1,42 +1,29 @@
-import { Carousel, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap"
 import Post from "../../../components/post";
 import categories from "../../../data/category";
 import posts from "../../../data/post";
-import './style.css'
+import { useSearchParams } from "react-router-dom";
 
-const HomePage = () => {
-    
+const  SearchPost = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
     return (
         <Container>
-            <Row>
-                <Carousel>
-                    {posts.slice(0, 3).map(post => {
-                        return (
-                            <Carousel.Item key={post.id}>
-                                <img src={post.image_src} alt="" style={{width: '100%', height: '400px'}}/>
-                                <Carousel.Caption>
-                                    <h3>{post.title}</h3>
-                                    <p>{post.brief}</p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                        );
-                    })}
-                </Carousel>
-            </Row>
-            <hr />
-            <Row style={{marginTop: '20px'}}>
-                <Col md={4}>
+            <Row style={{justifyContent: 'center'}}>
+                <Col md={6}>
                     <Row>
-                        {posts.slice(0, 8).map(post => {
-                            return (
-                                <Col md={12} key={post.id} className="mb-2" style={{ display: 'flex' }}>
-                                    <Post titleOnTop post={post} />
-                                </Col>
-                            );
-                        })}
+                        {
+                            posts.filter(p => p.title.toLowerCase().includes(searchParams.get("search").toLowerCase())).map((p) => {
+                                return (
+                                    <Col md={12} key={p.id} className="mb-2" style={{ display: 'flex' }}>
+                                        <Post post={p} />
+                                    </Col>
+                                );
+                            })
+                        }
                     </Row>
                 </Col>
-                <Col md={8}>
+
+                <Col md={6}>
                     <Row>
                         {categories.map((category) => {
                             let ps = posts.filter(post => post.category_id === category.id)
@@ -47,7 +34,7 @@ const HomePage = () => {
                                         {
                                             ps.map(p => {
                                                 return (
-                                                    <Col md={6} style={{ display: 'flex' }}>
+                                                    <Col key={p.id} md={6} style={{ display: 'flex' }}>
                                                         <Post post={p} />
                                                     </Col>
                                                 )
@@ -56,7 +43,6 @@ const HomePage = () => {
 
 
                                     </Row>
-                                    <hr></hr>
                                 </Col>
                             );
                         })}
@@ -64,6 +50,7 @@ const HomePage = () => {
                 </Col>
             </Row>
         </Container>
-    );
-};
-export default HomePage;
+
+    )
+}
+export default SearchPost;
