@@ -1,21 +1,23 @@
-import { Button, Col, Container, Row,  Table} from "react-bootstrap"
+import { Button, Col, Container, Row, Table } from "react-bootstrap"
 import { useState } from "react"
-import { useNavigate, useEffect } from "react";
+import { useEffect } from "react";
 import usePostService from "../../apis/post";
-
+import { useNavigate } from "react-router-dom";
 const PostManagementByAuthor = ({ id }) => {
     const postService = usePostService()
     const [posts, setPosts] = useState([])
     useEffect(() => {
+        getPost();
+    }, [])
+    const navigate = useNavigate();
+    const getPost = () => {
         postService.getPost().then(
             (res) => setPosts(res)
         )
-    }, [posts])
-    const navigate = useNavigate();
-
+    }
     const deletePost = (id) => {
         postService.deletePost(id).then(
-            (res) => setPosts(res)
+            (res) => getPost()
         )
     }
     return (
@@ -54,7 +56,7 @@ const PostManagementByAuthor = ({ id }) => {
                                     <td>{post.title}</td>
                                     <td>{post.public_date}</td>
                                     <td>
-                                        <Button onClick={()=>deletePost(post.id)} variant='danger' >Xóa</Button>
+                                        <Button onClick={() => deletePost(post.id)} variant='danger' >Xóa</Button>
                                     </td>
                                 </tr>
                             )
