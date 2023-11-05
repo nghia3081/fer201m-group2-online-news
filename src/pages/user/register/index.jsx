@@ -1,9 +1,9 @@
-import { Button, Col, Row } from "react-bootstrap"
+import { useState } from "react";
+import { Button, Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
-import './index.css'
 import { Link, useNavigate } from "react-router-dom";
 import useUserService from "../../../apis/user";
-import { useState } from "react";
+import './index.css';
 const Register = () => {
     const [user, setUser] = useState({});
     const [validated, setValidated] = useState(false);
@@ -73,6 +73,7 @@ const Register = () => {
                         height: "100vh",
                         objectFit: "cover"
                     }}
+                    alt="register-background"
                     src="https://www.pixground.com/wp-content/uploads/2023/04/Clouds-Meet-The-Sea-AI-Generated-4K-Wallpaper-jpg.webp" />
             </Col>
         </Row>

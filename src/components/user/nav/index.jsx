@@ -1,10 +1,10 @@
-import { Button, ButtonGroup, Col, Container, Form, NavDropdown, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, NavDropdown, Row } from 'react-bootstrap';
+import { House } from 'react-bootstrap-icons';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 import fptLogo from '../../../assets/images/fpt-logo.png';
 import './index.css';
-import { Link, NavLink } from 'react-router-dom';
-import { House, Search } from 'react-bootstrap-icons';
 const NavBar = ({ isSticky }) => {
     const user = JSON.parse(localStorage.getItem("user"))
     const logout = () => {
@@ -16,7 +16,7 @@ const NavBar = ({ isSticky }) => {
             <Row>
                 <Col md={3} sm={12} className='d-flex justify-content-start align-items-center'>
                     <Link to="/">
-                        <img style={{ objectFit: "contain" }} className='logo w-25' src={fptLogo} />
+                        <img style={{ objectFit: "contain" }} className='logo w-25' alt='logo' src={fptLogo} />
                     </Link>
 
                 </Col>

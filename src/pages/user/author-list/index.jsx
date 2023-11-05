@@ -1,5 +1,5 @@
-import { Card, Col, Container, Nav, Row } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const AuthorList = () => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const AuthorList = () => {
                         <Card key={i} className="mb-2" style={{cursor:"pointer"}} onClick={onClickAuthor}>
                             <Row>
                                 <Col md={4}>
-                                    <img style={{ objectFit: "cover" }} className="b-5 w-100" src="https://statusneo.com/wp-content/uploads/2023/02/MicrosoftTeams-image551ad57e01403f080a9df51975ac40b6efba82553c323a742b42b1c71c1e45f1.jpg"></img>
+                                    <img style={{ objectFit: "cover" }} className="b-5 w-100" alt="author-avatar" src="https://statusneo.com/wp-content/uploads/2023/02/MicrosoftTeams-image551ad57e01403f080a9df51975ac40b6efba82553c323a742b42b1c71c1e45f1.jpg"></img>
                                 </Col>
                                 <Col
                                     md={8}
