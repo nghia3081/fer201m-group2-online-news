@@ -3,7 +3,6 @@ import { Button, Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from "react-router-dom";
 
-import { useState } from "react";
 import useAccountService from "../../../apis/account";
 
 const Register = () => {
