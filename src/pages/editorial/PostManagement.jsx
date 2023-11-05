@@ -1,13 +1,16 @@
 import { Button, Col, Container, Row, Modal, Table, Form } from "react-bootstrap"
 import posts from "../../data/post"
-import { useState } from "react"
+import { useState, useEffect } from "react";
+import usePostService from "../../apis/post";
 
 const PostManagement = () => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggleOpenModal = () => {
-        setIsOpen(!isOpen)
-    }
+    const postService = usePostService()
+    const [posts, setPosts] = useState([])
+    useEffect(() => {
+        postService.getPost().then(
+            (res) => setPosts(res)
+        )
+    }, [])
 
     return (
         <>
@@ -57,58 +60,6 @@ const PostManagement = () => {
                     </Table>
                 </Row>
             </Container>
-
-            <Modal show={isOpen} onHide={toggleOpenModal} centered aria-labelledby="contained-modal-title-vcenter">
-                <Modal.Header closeButton>
-                    <Modal.Title>Thêm bài viết</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <Form.Group as={Row} controlId="formFileMultiple" className="mb-3">
-                            <Form.Label column sm="4">Chọn Thumbnail</Form.Label>
-                            <Col sm='8'><Form.Control type="file" multiple /></Col>
-
-                        </Form.Group>
-                        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Tên bài viết
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="text" placeholder="Nhập tên bài viết ..." />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Mô tả
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="text" placeholder="Nhập mô tả bài viết ..." />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Nội dung
-                            </Form.Label>
-                            <Col sm="12">
-                                <Form.Control as="textarea" rows={3} placeholder="Nhập tên bài viết ..." />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group controlId="formFileMultiple" className="mb-3">
-                            <Form.Label>Chọn ảnh</Form.Label>
-                            <Form.Control type="file" multiple />
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={toggleOpenModal}>
-                        Lưu
-                    </Button>
-                    <Button variant="secondary" onClick={toggleOpenModal}>
-                        Thoát
-                    </Button>
-
-                </Modal.Footer>
-            </Modal>
         </>
     )
 }

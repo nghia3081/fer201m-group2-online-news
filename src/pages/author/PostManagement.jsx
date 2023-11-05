@@ -1,17 +1,25 @@
-import { Button, Col, Container, Row, Modal, Table, Form } from "react-bootstrap"
-import posts from "../../data/post"
+import { Button, Col, Container, Row, Table } from "react-bootstrap"
 import { useState } from "react"
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { useNavigate, useNavigation } from "react-router";
-
+import { useEffect } from "react";
+import usePostService from "../../apis/post";
+import { useNavigate } from "react-router-dom";
 const PostManagementByAuthor = ({ id }) => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggleOpenModal = () => {
-        setIsOpen(!isOpen)
+    const postService = usePostService()
+    const [posts, setPosts] = useState([])
+    useEffect(() => {
+        getPost();
+    }, [])
+    const navigate = useNavigate();
+    const getPost = () => {
+        postService.getPost().then(
+            (res) => setPosts(res)
+        )
     }
-const navigate = useNavigate();
+    const deletePost = (id) => {
+        postService.deletePost(id).then(
+            (res) => getPost()
+        )
+    }
     return (
         <Container style={{ padding: '20px' }}>
             <Row>
@@ -42,13 +50,13 @@ const navigate = useNavigate();
                     </thead>
                     <tbody>
                         {posts.map(post => {
-                            return ( 
+                            return (
                                 <tr key={post.id}>
                                     <td>{post.id}</td>
                                     <td>{post.title}</td>
                                     <td>{post.public_date}</td>
                                     <td>
-                                        <Button variant='danger' >Xóa</Button>
+                                        <Button onClick={() => deletePost(post.id)} variant='danger' >Xóa</Button>
                                     </td>
                                 </tr>
                             )

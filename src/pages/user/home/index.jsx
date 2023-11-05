@@ -1,10 +1,23 @@
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import Post from "../../../components/post";
-import categories from "../../../data/category";
-import posts from "../../../data/post";
 import './style.css'
+import { useEffect, useState } from "react";
+import usePostService from "../../../apis/post";
+import useCategoryService from "../../../apis/category";
 
 const HomePage = () => {
+    const postService = usePostService()
+    const categoryService = useCategoryService()
+    const [posts, setPosts] = useState([])
+    const [categories, setCategories] = useState([])
+    useEffect(()=>{
+        postService.getPost().then(
+           (res) => setPosts(res)
+        )
+        categoryService.getCategory().then(
+            (res) => setCategories(res)
+        )
+    }, [])
     
     return (
         <Container>
@@ -13,7 +26,7 @@ const HomePage = () => {
                     {posts.slice(0, 3).map(post => {
                         return (
                             <Carousel.Item key={post.id}>
-                                <img src={post.image_src} alt="" style={{width: '100%', height: '400px'}}/>
+                                <img src={post.thumbnail} alt="" style={{width: '100%', height: '400px'}}/>
                                 <Carousel.Caption>
                                     <h3>{post.title}</h3>
                                     <p>{post.brief}</p>
