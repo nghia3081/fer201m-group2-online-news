@@ -4,7 +4,7 @@ const baseURI = "posts"
 const usePostService = () => {
     const axios = useAxios();
     const getPost = () => {
-        return axios.get(baseURI)
+        return axios.get(`${baseURI}/?_sort=public_date&_order=desc`)
     }
     const getPostByCategoryId = (categoryId) => {
         return axios.get(`categories/${categoryId}/posts`)

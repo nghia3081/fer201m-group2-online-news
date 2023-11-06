@@ -30,7 +30,7 @@ const PostEditor = () => {
 
             postService.createPost(data).then(res => {
                 console.log("res", res);
-                navigate('/bai-viet')
+                navigate('/manage/bai-viet')
             })
         })
 
