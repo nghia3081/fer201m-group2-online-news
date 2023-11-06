@@ -1,8 +1,9 @@
-import { Button, Col, Row } from "react-bootstrap"
+import { useState } from "react";
+import { Button, Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
+
 import './index.css'
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import useAccountService from "../../../apis/account";
 
 
@@ -59,6 +60,7 @@ const Login = () => {
                         height: "100vh",
                         objectFit: "cover"
                     }}
+                    alt="login-background"
                     src="https://www.pixground.com/wp-content/uploads/2023/04/Clouds-Meet-The-Sea-AI-Generated-4K-Wallpaper-jpg.webp" />
             </Col>
         </Row>
