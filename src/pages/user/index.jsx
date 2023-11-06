@@ -1,14 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
+import PostDetail from "../../components/post-detail"
 import Footer from "../../components/user/footer"
 import NavBar from "../../components/user/nav"
-import HomePage from "./home"
-import Login from "./login"
-import Register from "./register"
-import UserProfile from "./profile"
+import SearchPost from "./SearchPost"
 import AuthorList from "./author-list"
 import AuthorProfile from "./author-profile"
-import PostDetail from "../../components/post-detail"
-import SearchPost from "./SearchPost"
+import HomePage from "./home"
+import Login from "./login"
+import UserProfile from "./profile"
+import Register from "./register"
 
 const UserPage = () => {
     return (
