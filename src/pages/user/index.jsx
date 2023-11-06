@@ -8,13 +8,14 @@ import UserProfile from "./profile"
 import AuthorList from "./author-list"
 import AuthorProfile from "./author-profile"
 import PostDetail from "../../components/post-detail"
+import SearchPost from "./SearchPost"
 
 const UserPage = () => {
     return (
         <>
             {window.location.pathname !== '/login' && <NavBar />}
 
-            <Routes  >
+            <Routes>
                 <Route path="/" element={<HomePage></HomePage>} />
                 <Route path="/post/:id" element={<PostDetail></PostDetail>} />
                 <Route path="/login" element={<Login></Login>} />
@@ -22,6 +23,7 @@ const UserPage = () => {
                 <Route path="/profile" element={<UserProfile></UserProfile>} />
                 <Route path="/author" element={<AuthorList></AuthorList>} />
                 <Route path="/author/:id" element={<AuthorProfile></AuthorProfile>} />
+                <Route path="/category/:id" element={<HomePage></HomePage>} />
             </Routes>
 
             {window.location.pathname !== '/login' && <Footer />}

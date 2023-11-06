@@ -14,12 +14,20 @@ import "./index.css";
 import { Link, NavLink } from "react-router-dom";
 import { House, Search } from "react-bootstrap-icons";
 import categories from "../../../data/category";
+import useAccountService from "../../../apis/account";
+import { useEffect, useState } from "react";
 
 const NavBar = ({ isSticky }) => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const accountService = useAccountService();
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        accountService.getMyProfile().then(res => setUser(res));
+    }, [])
+    const onLogin = () => {
+        window.location.href = "/login";
+    }
     const logout = () => {
-        localStorage.removeItem("user");
-        window.location.href = "/";
+        accountService.logout();
     };
     return (
         <Navbar
@@ -44,11 +52,20 @@ const NavBar = ({ isSticky }) => {
                 <Col md={8} sm={12}>
                     <Row>
                         <Col md={12}>
-                            <Form.Control
-                                className="d-inline-block"
-                                type="search"
-                                placeholder="Enter something to find a post"
-                            />
+                        <Form
+                                action='/search'
+                                method='get'
+                                onSubmit={(e)=>{
+                                    console.log(e.target.search.value);
+                                }}
+                            >
+                                <Form.Control
+                                    name="search"
+                                    className='d-inline-block'
+                                    type="search"
+                                    placeholder='Enter something to find a post'
+                                />
+                            </Form>
                         </Col>
                         {/* <Col md={1}>
                             <Button><Search></Search></Button>
@@ -67,7 +84,7 @@ const NavBar = ({ isSticky }) => {
                                 >
                                     {categories.map((category) => {
                                         return (
-                                            <Nav.Link key={category.id} as={Link} to={`/${category.id}`}>
+                                            <Nav.Link key={category.id} as={Link} to={`category/${category.id}`}>
                                                 {category.name}
                                             </Nav.Link>
                                         );
@@ -104,7 +121,7 @@ const NavBar = ({ isSticky }) => {
                             Logout
                         </Button>
                     ) : (
-                        <Link to="/login">
+                        <Link onClick={onLogin}>
                             <Button className="btn-danger">Login</Button>
                         </Link>
                     )}

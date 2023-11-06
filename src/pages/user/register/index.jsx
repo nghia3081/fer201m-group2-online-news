@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from "react-router-dom";
-import useUserService from "../../../apis/user";
-import './index.css';
+
+import { useState } from "react";
+import useAccountService from "../../../apis/account";
+
 const Register = () => {
     const [user, setUser] = useState({});
     const [validated, setValidated] = useState(false);
-    const userService = useUserService();
+    const accountService = useAccountService();
     const navigate = useNavigate();
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -16,7 +18,7 @@ const Register = () => {
         event.preventDefault();
         event.stopPropagation();
         console.log(user);
-        userService.register(user)
+        accountService.register(user)
             .then(user => {
                 alert("Register successfully");
                 navigate("/login");

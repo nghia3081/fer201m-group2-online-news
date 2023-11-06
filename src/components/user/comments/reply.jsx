@@ -6,8 +6,9 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import { Textarea } from "react-bootstrap-icons";
+import CommentEditor from "./comment-editor";
 
-const Reply = ({ reply }) => {
+const Reply = ({ reply, closeReply }) => {
     const [replying, setReplying] = useState(false);
     const [time, setTime] = useState("");
     const [vote, setVoted] = useState(false);
@@ -15,7 +16,9 @@ const Reply = ({ reply }) => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [content, setContent] = useState('')
 
-    return (
+    return reply.isReplying ?
+        <CommentEditor />
+        :
         <div className="reply-container" style={{ backgroundColor: 'white', padding: '5px', border: '1px solid #ccc', borderRadius: '5px', margin: ' 5px 5px 5px 25px' }}>
             <div className="reply-header" style={{ display: 'flex', alignItems: 'center' }}>
                 <div className='avatar'>
@@ -28,11 +31,11 @@ const Reply = ({ reply }) => {
                 <div className="username" style={{ marginLeft: '10px' }}>{reply.username}</div>
             </div>
             <div className="reply-body">
-                <div className="reply-content" style={{marginLeft: '10px'}}>
+                <div className="reply-content" style={{ marginLeft: '10px' }}>
                     {reply.content}
                 </div>
             </div>
         </div>
-    );
+
 };
 export default Reply;
