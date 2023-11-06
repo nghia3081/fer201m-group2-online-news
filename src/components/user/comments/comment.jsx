@@ -70,7 +70,7 @@ const Comment = ({ comment }) => {
                 </div>
             </div>
             <div className="comment-footer" >
-                {replies.map((reply) => {
+                {replies?.map((reply) => {
                     if (reply.length === 0) return null
                     return (<Reply key={reply.id} reply={reply} isReplying={isReplying} closeReply={() => closeReply()} />)
                 })}

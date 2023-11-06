@@ -17,8 +17,10 @@ const CommentEditor = ({ isReplying, closeReply, onComment }) => {
         }
         commentService.createComment(data).then(res => {
             setContent(res)
+        }).then(() => {
+            setContent('')
+            onComment()
         })
-        onComment()
     }
 
     return (
