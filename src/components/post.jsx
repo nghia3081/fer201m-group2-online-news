@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ const Post = ({ titleOnTop, post }) => {
     const navigate = useNavigate();
 
     const OnPostClick = () => {
-        navigate('/post/2')
+        navigate(`/post/${post.id}`)
     }
 
     return (
