@@ -63,6 +63,26 @@
       "role": 1
     },
     {
+      "id": 2,
+      "username": "editorial1",
+      "email": "editorial1@gmail.com",
+      "fullName": "Editorial1",
+      "phone": "05465456564",
+      "password": "editorial1@123",
+      "role": 2,
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "username": "editorial2",
+      "email": "editorial2@gmail.com",
+      "fullName": "Editorial2",
+      "phone": "05465456564",
+      "password": "editorial2@123",
+      "role": 2,
+      "categoryId": 1
+    },
+    {
       "id": 4,
       "username": "author1",
       "email": "author1@gmail.com",
