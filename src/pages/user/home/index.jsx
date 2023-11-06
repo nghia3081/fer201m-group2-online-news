@@ -1,9 +1,9 @@
-import { Carousel, Col, Container, Row } from "react-bootstrap";
-import Post from "../../../components/post";
-import './style.css'
 import { useEffect, useState } from "react";
-import usePostService from "../../../apis/post";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import useCategoryService from "../../../apis/category";
+import usePostService from "../../../apis/post";
+import Post from "../../../components/post";
+import './style.css';
 
 const HomePage = () => {
     const postService = usePostService()
@@ -38,7 +38,7 @@ const HomePage = () => {
             </Row>
             <hr />
             <Row style={{marginTop: '20px'}}>
-                <Col md={4}>
+                <Col md={9}>
                     <Row>
                         {posts.slice(0, 8).map(post => {
                             return (
@@ -49,7 +49,7 @@ const HomePage = () => {
                         })}
                     </Row>
                 </Col>
-                <Col md={8}>
+                <Col md={3}>
                     <Row>
                         {categories.map((category) => {
                             let ps = posts.filter(post => post.category_id === category.id)

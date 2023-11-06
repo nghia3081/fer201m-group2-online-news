@@ -22,7 +22,7 @@ const  SearchPost = () => {
     return (
         <Container>
             <Row style={{justifyContent: 'center'}}>
-                <Col md={6}>
+                <Col md={9}>
                     <Row>
                         {
                             posts?.filter(p => p.title.toLowerCase().includes(searchParams.get("search").toLowerCase())).map((p) => {
@@ -36,7 +36,7 @@ const  SearchPost = () => {
                     </Row>
                 </Col>
 
-                <Col md={6}>
+                <Col md={3}>
                     <Row>
                         {categories?.map((category) => {
                             let ps = posts?.filter(post => post.category_id === category.id)
