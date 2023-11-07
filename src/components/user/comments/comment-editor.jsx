@@ -1,26 +1,36 @@
 import { useState } from "react";
 import useCommentService from "../../../apis/comment";
 
-const CommentEditor = ({ isReplying, closeReply, onComment }) => {
+const CommentEditor = ({ isReplying, onComment }) => {
     const commentService = useCommentService({})
     const [content, setContent] = useState({})
 
     const clickHandler = () => {
         let data = {}
         if (isReplying) {
-            let reply = {
+            let reply = [{
                 content: content
-            }
-            data = { reply: [...data.reply, reply] }
+            }]
+            data.replies = []
+            data = { replies: [...data.replies, reply] }
+
+            commentService.createComment(data).then(res => {
+                setContent(res)
+            }).then(() => {
+                setContent('')
+                onComment()
+            })
         } else {
             data = { content: content }
+
+            commentService.createComment(data).then(res => {
+                setContent(res)
+            }).then(() => {
+                setContent('')
+                onComment()
+            })
         }
-        commentService.createComment(data).then(res => {
-            setContent(res)
-        }).then(() => {
-            setContent('')
-            onComment()
-        })
+
     }
 
     return (

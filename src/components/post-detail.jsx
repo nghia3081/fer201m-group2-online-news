@@ -46,7 +46,7 @@ const PostDetail = () => {
                 <hr />
                 {comments.map(comment => {
                     return (
-                        <Comment key={comment.id} comment={comment} />
+                        <Comment key={comment.id} comment={comment} onComment={() => onComment()}/>
                     )
                 })}
             </Row>

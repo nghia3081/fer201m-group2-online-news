@@ -8,16 +8,13 @@ import { useState } from "react";
 import { Textarea } from "react-bootstrap-icons";
 import CommentEditor from "./comment-editor";
 
-const Reply = ({ reply, closeReply }) => {
-    const [replying, setReplying] = useState(false);
-    const [time, setTime] = useState("");
-    const [vote, setVoted] = useState(false);
-    // const [isEditing, setEditing] = useState(false);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [content, setContent] = useState('')
+const Reply = ({ reply, onComment }) => {
+    const handleComment = () => {
+        onComment()
+    }
 
     return reply.isReplying ?
-        <CommentEditor />
+        <CommentEditor isReplying={true} onComment={() => handleComment()}/>
         :
         <div className="reply-container" style={{ backgroundColor: 'white', padding: '5px', border: '1px solid #ccc', borderRadius: '5px', margin: ' 5px 5px 5px 25px' }}>
             <div className="reply-header" style={{ display: 'flex', alignItems: 'center' }}>

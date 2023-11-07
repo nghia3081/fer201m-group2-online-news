@@ -7,22 +7,23 @@ import {
 import { useState } from "react";
 import Reply from "./reply";
 
-const Comment = ({ comment }) => {
-    const [isReplying, setIsReplying] = useState(false);
-    const [isDeleting, setIsDeleting] = useState(false);
+const Comment = ({ comment, onComment }) => {
     const [isLike, setIsLike] = useState(false);
-    const [replies, setReplies] = useState(comment.replies)
+    const [replies, setReplies] = useState(comment.replies ? comment.replies : [])
 
     const onReply = () => {
-        setReplies([...replies, { isReplying: true }])
+        let rep = replies
+        rep = [...rep, { isReplying: true }]
+        console.log("reppp", rep);
+        setReplies(rep)
     }
 
     const toogleLike = () => {
         setIsLike(!isLike)
     }
 
-    const closeReply = () => {
-
+    const handleComment = () => {
+        onComment()
     }
 
     return (
@@ -70,9 +71,9 @@ const Comment = ({ comment }) => {
                 </div>
             </div>
             <div className="comment-footer" >
-                {replies?.map((reply) => {
-                    if (reply.length === 0) return null
-                    return (<Reply key={reply.id} reply={reply} isReplying={isReplying} closeReply={() => closeReply()} />)
+                {!replies.length  ? <></> : replies.map((reply) => {
+                    console.log("reply", reply);
+                    return (<Reply key={reply.id} reply={reply} onComment={() => handleComment()} />)
                 })}
             </div>
         </div>
